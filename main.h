@@ -16,7 +16,8 @@ int prente_i(va_list args);
  *@foo: type pointer to function for the conversion specifier
  *
  */
-typedef struct select{
+typedef struct select
+{
 char *select;
 int (*foo)(va_list args);
 } select_p;
