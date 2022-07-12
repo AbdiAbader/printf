@@ -11,7 +11,7 @@ int finder(const char *format, select_p selects[], va_list args)
 {
 int i, j, r_val, printnum = 0;
 for (i = 0; format[i] != '\0'; i++)
-if (format[i] == '%') 
+if (format[i] == '%')
 {
 for (j = 0; selects[j].select != NULL; j++)
 {
@@ -39,7 +39,7 @@ i++;
 }
 else
 {
-_putchar(format[i]); 
+_putchar(format[i]);
 printnum++;
 }
 return (printnum);
