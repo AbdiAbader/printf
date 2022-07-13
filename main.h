@@ -10,6 +10,10 @@ int _putchar(char c);
 int prente_b(va_list args);
 int prente_d(va_list args);
 int prente_i(va_list args);
+int prente_x(va_list args);
+int prente_X(va_list args);
+int prente_o(va_list args);
+int prente_u(va_list args);
 /**
  *struct select - match the conversion specifiers for printf
  *@select: type char pointer of the specifier
