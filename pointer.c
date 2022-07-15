@@ -6,55 +6,44 @@
  */
 int prente_po(va_list args)
 {
-void *p;
-char *s = "(nil)";
-long int a;
-int b;
-int i;
-p = va_arg(args, void*);
-if (p == NULL)
-{
-for (i = 0; s[i] != '\0'; i++)
-{
-_putchar(s[i]);
-}
-return (i);
-}
-a = (unsigned long int)p;
-_putchar('0');
-_putchar('x');
-b = prente_xx(a);
-return (b + 2);
-}
-/**
- *prente_xx- prints in hexadecimal lower case
- *@args: argument passed from _printf functions
- *Return: number of print
- */
-int prente_xx(unsigned long int num)
-{
-  long int x, y, count = 0, i;
-  int tmp;
-  int *hold;
-  for (x = num; x > 0; x = x / 16)
-    count++;
-  hold = malloc(sizeof(int) * count + 1);
-  if (hold == NULL)
+
+  unsigned long int dec, buffr;
+  char c[100];
+  int count, n, i;
+
+  dec = (unsigned long int)va_arg(arg, void*);
+  buffr = dec;
+  count = 1;
+  i = 0;
+
+  if (!dec)
     {
-      free(hold);
-      return (-1);
+      _puts("(nil)");
+      return (5);
     }
-  x = num;
-  for (i = 0; i < count; i++)
+  while (buffr)
     {
-      tmp = x % 16;
-      x /= 16;
-      if (tmp < 10)
-	hold[i] = tmp + 48;
+      buffr /= 16;
+      count++;
+    }
+  c[count + 1] = '\0';
+  while (dec > 0)
+    {
+      n = (dec % 16);
+      if (n >= 0 && n <= 9)
+	c[count] = ((char)(n + '0'));
       else
-	hold[i] = tmp + 87;
+	c[count] = ((char)(n + 'W'));
+      count--;
+      dec /= 16;
     }
-  for (y = count; y >= 0; y--)
-    _putchar(hold[y]);
-return (count);
+  c[0] = '0';
+  c[1] = 'x';
+
+  while (c[i] != '\0')
+    {
+      _putchar(c[i]);
+      i++;
+    }
+  return (i);
 }
