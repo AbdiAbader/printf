@@ -2,10 +2,12 @@
 #define _MAIN_H_
 #include <stdarg.h>
 #include <stdlib.h>
+int prente_xx(unsigned long int num);
 int _printf(const char *format, ...);
 int prente_c(va_list args);
 int prente_s(va_list args);
 int prente_p(va_list args);
+int prente_po(va_list args);
 int _putchar(char c);
 int prente_b(va_list args);
 int prente_d(va_list args);

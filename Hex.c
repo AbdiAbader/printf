@@ -6,24 +6,31 @@
  */
 int prente_X(va_list args)
 {
-long int times = 0, x, y, count = 0, num;
+long int x, y, count = 0, num,i;
 int tmp;
-char s;
+int *hold;
 num = va_arg(args, long int);
 for (x = num; x > 0; x = x / 16)
+count++;
+hold = malloc(sizeof(int) * count + 1);
+if (hold == NULL)
+{
+free(hold);
+return (-1);
+}
+x = num;
+for (i = 0; i < count; i++)
 {
 tmp = x % 16;
+x /= 16;
 if (tmp < 10)
-tmp = tmp + 48;
+hold[i] = tmp + 48;
 else
-tmp = tmp + 55;
-times = times * 100 + tmp;
+hold[i] = tmp + 55;
 }
-for (y = times; y > 0; y = y / 100)
+for (y = count; y >= 0; y--)
 {
-s = y % 100;
-_putchar(s);
-count++;
+_putchar(hold[y]);
 }
 return (count);
 }
@@ -34,26 +41,29 @@ return (count);
  */
 int prente_x(va_list args)
 {
-long int times = 0, x, y, count = 0, num;
-int tmp;
-char s;
-num = va_arg(args, long int);
-for (x = num; x > 0; x = x / 16)
-{
-tmp = x % 16;
-if (tmp < 10)
-tmp = tmp + 48;
-else
-tmp = tmp + 55;
-times = times * 100 + tmp;
-}
-for (y = times; y > 0; y = y / 100)
-{
-s = y % 100;
-if (s > 57)
-s += 32;
-_putchar(s);
-count++;
-}
+long int x, y, count = 0, num,i;
+  int tmp;
+  int *hold;
+  num = va_arg(args, long int);
+  for (x = num; x > 0; x = x / 16)
+    count++;
+  hold = malloc(sizeof(int) * count + 1);
+  if (hold == NULL)
+    {
+      free(hold);
+      return (-1);
+    }
+  x = num;
+  for (i = 0; i < count; i++)
+    {
+      tmp = x % 16;
+      x /= 16;
+      if (tmp < 10)
+	hold[i] = tmp + 48;
+      else
+hold[i] = tmp + 87;
+    }
+for (y = count; y >= 0; y--)
+_putchar(hold[y]);
 return (count);
 }
