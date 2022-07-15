@@ -8,9 +8,15 @@ int prente_o(va_list args)
 {
 int i;
 int *hold;
-int count = 1;
+ int count = 1, x;
+ unsigned int temp;
 unsigned int num = va_arg(args, unsigned int);
-unsigned int temp = num, x;
+ if (num  == 0)
+{
+_putchar(48);
+ return (1);
+ }
+temp = num;
 for (x = num; x > 0; x = x / 8)
 count++;
 hold = malloc(count * sizeof(int));
@@ -35,6 +41,11 @@ int prente_u(va_list args)
 unsigned int n = va_arg(args, unsigned int);
 int num, last = n % 10, digit, exp = 1;
 int  i = 1;
+if (n == 0)
+{
+_putchar(48);
+ return (1);
+ }
 n = n / 10;
 num = n;
 if (last < 0)
