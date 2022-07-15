@@ -63,7 +63,7 @@ long int x, y, count = 0, num,i;
       else
 hold[i] = tmp + 87;
     }
-for (y = count; y >= 0; y--)
+for (y = count - 1; y >= 0; y--)
 _putchar(hold[y]);
 return (count);
 }
