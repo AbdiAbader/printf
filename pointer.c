@@ -100,5 +100,21 @@ int prente_rot(va_list args)
     }
   
   return (j);
-  
+}
+/**
+ *prente_r - prints in reverse
+ *@args: arguments
+ *Return: number of printed
+ */
+int prente_r(va_list args)
+{
+int i = 0, j;
+char *s = va_arg(args, char *);
+if (!s)
+return (-1);
+while (s[i])
+i++;  
+for (j = i - 1; j >= 0; j--)
+_putchar(s[j]);
+return (i); 
 }

@@ -10,6 +10,7 @@ int prente_s(va_list args);
 int prente_p(va_list args);
 int prente_po(va_list args);
 int _putchar(char c);
+int prente_r(va_list args)
 int prente_b(va_list args);
 int prente_d(va_list args);
 int prente_i(va_list args);
