@@ -6,30 +6,27 @@
  */
 int prente_o(va_list args)
 {
-int i;
-int *hold;
- int count = 1, x;
- unsigned int temp;
-unsigned int num = va_arg(args, unsigned int);
- if (num  == 0)
-{
-_putchar(48);
- return (1);
- }
-temp = num;
-for (x = num; x > 0; x = x / 8)
-count++;
-hold = malloc(count * sizeof(int));
-for (i = 0; i < count - 1; i++)
-{
-hold[i] = temp % 8;
-temp /= 8;
-}
-count--;
- for (i = count - 1; i >= 0; i--)
-_putchar(hold[i] + '0');
-free(hold);
-return (count);
+  unsigned int a[11];
+  unsigned int i, m, n, sum;
+  int count;
+  n = va_arg(args, unsigned int);
+  m = 1073741824;
+  a[0] = n / m;
+  for (i = 1; i < 11; i++)
+    {
+      m /= 8;
+      a[i] = (n / m) % 8;
+    }
+  for (i = 0, sum = 0, count = 0; i < 11; i++)
+    {
+      sum += a[i];
+      if (sum || i == 10)
+	{
+	  _putchar('0' + a[i]);
+	  count++;
+	}
+    }
+  return (count);
 }
 /**
  *prente_u - prints in oct format
