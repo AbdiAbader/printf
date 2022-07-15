@@ -6,7 +6,7 @@
  */
 int prente_X(va_list args)
 {
-long int decimal, times = 0, x, y, count = 0, num;
+long int times = 0, x, y, count = 0, num;
 int tmp;
 char s;
 num = va_arg(args, long int);
@@ -34,7 +34,7 @@ return (count);
  */
 int prente_x(va_list args)
 {
-long int decimal, times = 0, x, y, count = 0, num;
+long int times = 0, x, y, count = 0, num;
 int tmp;
 char s;
 num = va_arg(args, long int);
