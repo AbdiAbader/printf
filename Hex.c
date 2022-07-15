@@ -6,10 +6,10 @@
  */
 int prente_X(va_list args)
 {
-long int x, y, count = 0, num,i;
-int tmp;
+unsigned int x, count = 0, num, i, tmp;
 int *hold;
-num = va_arg(args, long int);
+int y;
+num = va_arg(args, unsigned int);
 for (x = num; x > 0; x = x / 16)
 count++;
 hold = malloc(sizeof(int) * count + 1);
@@ -41,10 +41,10 @@ return (count);
  */
 int prente_x(va_list args)
 {
-long int x, y, count = 0, num,i;
-  int tmp;
+  unsigned  int x, count = 0, num,i;
+ int tmp , y;
   int *hold;
-  num = va_arg(args, long int);
+  num = va_arg(args, unsigned int);
   for (x = num; x > 0; x = x / 16)
     count++;
   hold = malloc(sizeof(int) * count + 1);
