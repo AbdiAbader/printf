@@ -1,69 +1,121 @@
 #include "main.h"
 /**
- *prente_X - prints in hexadecimal upper case
- *@args: argument passed from _printf functions
- *Return: number of print
+
+ * print_hex - prints an unsigned int in hexidecimal form
+
+ * @n: unsigned int to print
+
+ * @c: flag to determine case of printing (0 = lower, 1 = upper)
+
+ *
+
+ * Return: number of digits printed
+
  */
-int prente_X(va_list args)
+
+int print_hex(unsigned int n, unsigned int c)
+  
 {
-unsigned int x, count = 0, num, i, tmp;
-int *hold;
-int y;
-num = va_arg(args, unsigned int);
-for (x = num; x > 0; x = x / 16)
-count++;
-hold = malloc(sizeof(int) * count + 1);
-if (hold == NULL)
-{
-free(hold);
-return (-1);
+  
+  unsigned int a[8];
+  
+  unsigned int i, m, sum;
+  
+  char diff;
+  
+  int count;
+  
+
+  
+  m = 268435456; /* (16 ^ 7) */
+  
+  if (c)
+    
+    diff = 'A' - ':';
+  
+  else
+    
+    diff = 'a' - ':';
+  
+  a[0] = n / m;
+  
+  for (i = 1; i < 8; i++)
+    
+    {
+      
+      m /= 16;
+      
+      a[i] = (n / m) % 16;
+      
+    }
+  
+  for (i = 0, sum = 0, count = 0; i < 8; i++)
+    
+    {
+      
+      sum += a[i];
+      
+      if (sum || i == 7)
+	
+	{
+	  
+	  if (a[i] < 10)
+	    
+	    _putchar('0' + a[i]);
+	  
+	  else
+	    
+	    _putchar('0' + diff + a[i]);
+	  
+	  count++;
+	  
+	}
+      
+    }
+  
+  return (count);
+  
 }
-x = num;
-for (i = 0; i < count; i++)
-{
-tmp = x % 16;
-x /= 16;
-if (tmp < 10)
-hold[i] = tmp + 48;
-else
-hold[i] = tmp + 55;
-}
-for (y = count; y >= 0; y--)
-{
-_putchar(hold[y]);
-}
-return (count);
-}
+
 /**
- *prente_x - prints in hexadecimal lower case
- *@args: argument passed from _printf functions
- *Return: number of print
+
+ * print_x - takes an unsigned int and prints it in lowercase hex notation
+
+ * @x: unsigned int to print
+
+ *
+
+ * Return: number of digits printed
+
  */
+
 int prente_x(va_list args)
+  
 {
-  unsigned  int x, count = 0, num,i;
- int tmp , y;
-  int *hold;
-  num = va_arg(args, unsigned int);
-  for (x = num; x > 0; x = x / 16)
-    count++;
-  hold = malloc(sizeof(int) * count + 1);
-  if (hold == NULL)
-    {
-      free(hold);
-      return (-1);
-    }
-  x = num;
-  for (i = 0; i < count; i++)
-    {
-      tmp = x % 16;
-      x /= 16;
-      if (tmp < 10)
-	hold[i] = tmp + 48;
-      else
-hold[i] = tmp + 87;
-    }
-for (y = count - 1; y >= 0; y--)
-_putchar(hold[y]);
-return (count);
+  
+  return (print_hex(va_arg(args, unsigned int), 0));
+  
 }
+
+
+
+/**
+
+ * print_X - takes am unsigned int and prints it in uppercase hex notation
+
+ * @X: unsigned int to print
+
+ *
+
+ * Return: number of digits printed
+
+ */
+
+int prente_X(va_list args)
+  
+{
+  
+  return (print_hex(va_arg(args, unsigned int), 1));
+  
+}
+

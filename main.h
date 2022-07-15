@@ -3,6 +3,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 int prente_xx(unsigned long int num);
+int print_hex(unsigned int n, unsigned int c);
 int _printf(const char *format, ...);
 int prente_rot(va_list args);
 int prente_c(va_list args);
