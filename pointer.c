@@ -11,15 +11,15 @@ int prente_po(va_list args)
   char c[100];
   int count, n, i;
 
-  dec = (unsigned long int)va_arg(arg, void*);
+  dec = (unsigned long int)va_arg(args, void*);
   buffr = dec;
   count = 1;
   i = 0;
 
   if (!dec)
     {
-      _puts("(nil)");
-      return (5);
+      n = _printf("(nil)");
+      return (n);
     }
   while (buffr)
     {
