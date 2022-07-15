@@ -20,7 +20,7 @@ hold[i] = temp % 8;
 temp /= 8;
 }
 count--;
-for (i = count; i >= 0; i--)
+ for (i = count - 1; i >= 0; i--)
 _putchar(hold[i] + '0');
 free(hold);
 return (count);
