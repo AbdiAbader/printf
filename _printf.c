@@ -12,7 +12,7 @@ select_p selects[] = {
 {"s", prente_s}, {"c", prente_c}, {"%", prente_p},
 {"b", prente_b}, {"d", prente_d}, {"i", prente_d},
 {"x", prente_x}, {"X", prente_X}, {"o", prente_o},
-{"u", prente_u}, {"p", prente_po},
+{"u", prente_u}, {"p", prente_po}, {"r", prente_rot},
 {NULL, NULL}
 };
 if (format == NULL)
